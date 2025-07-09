@@ -16,9 +16,9 @@ function App() {
   return (
     <>
     <div>
-      <UserProfile name="Blessman"
-      age={32}
-      bio="Frontend developer who loves building beautiful user interfaces."
+      <UserProfile name="Alice"
+      age={25}
+      bio="Loves hiking and photography"
         />
     </div>
     <Header />
