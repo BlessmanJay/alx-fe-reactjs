@@ -1,5 +1,6 @@
 // App.jsx
 import React from "react";
+import UserProfile from "./UserProfile";
 import Header from "./Header";
 import MainContent from "./MainContent";
 import Footer from "./Footer";
@@ -14,6 +15,12 @@ function App() {
 
   return (
     <>
+    <div>
+      <UserProfile name="Blessman"
+      age={32}
+      bio="Frontend developer who loves building beautiful user interfaces."
+        />
+    </div>
     <Header />
     <MainContent />
     <Footer />
