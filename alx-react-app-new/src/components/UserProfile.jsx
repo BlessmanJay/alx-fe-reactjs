@@ -8,7 +8,6 @@ function UserProfile(props) {
         border: "1px solid gray",
         padding: "10px",
         margin: "10px",
-        borderRadius: "8px",
         backgroundColor: "#f9f9f9",
       }}
     >
