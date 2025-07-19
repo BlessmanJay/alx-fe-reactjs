@@ -9,7 +9,6 @@ function Header() {
         color: "white",
         textAlign: "center",
         padding: "20px",
-        fontSize: "2rem",
       }}
     >
       <h1>My Favorite Cities</h1>
