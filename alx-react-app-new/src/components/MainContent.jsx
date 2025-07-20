@@ -10,7 +10,7 @@ function MainContent() {
       }}
     >
       <h2 style={{ color: "#00796b" }}>Welcome to My Favorite Cities</h2>
-      <p>Here you'll find a list of the most amazing cities in the world.</p>
+      <p>I love to visit New York, Paris, and Tokyo.</p>
     </main>
   );
 }
