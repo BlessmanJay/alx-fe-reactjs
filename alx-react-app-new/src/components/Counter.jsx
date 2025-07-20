@@ -20,7 +20,7 @@ function Counter() {
       }}
     >
       <h2>Counter App</h2>
-      <h3>{count}</h3>
+      <p>Current Count: {count}</p>
       <button onClick={increment} style={{ marginRight: "10px" }}>
         Increment
       </button>
