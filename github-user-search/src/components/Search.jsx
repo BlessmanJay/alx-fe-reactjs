@@ -1,71 +1,98 @@
 import React, { useState } from "react";
-import { fetchUserData } from "../services/github";
+import { fetchUsersByQuery } from "../services/githubService";
 
 function Search() {
   const [username, setUsername] = useState("");
-  const [userData, setUserData] = useState(null);
+  const [location, setLocation] = useState("");
+  const [minRepos, setMinRepos] = useState("");
+  const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const handleSubmit = async (e) => {
+  const handleSearch = async (e) => {
     e.preventDefault();
     setLoading(true);
     setError("");
-    setUserData(null);
+    setUsers([]);
 
     try {
-      const data = await fetchUserData(username);
-      setUserData(data);
+      const results = await fetchUsersByQuery({ username, location, minRepos });
+      setUsers(results);
     } catch (err) {
-      setError("Looks like we cant find the user");
+      setError("No matching users found.");
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="max-w-xl mx-auto mt-8 p-4 bg-white rounded shadow">
-      <form onSubmit={handleSubmit} className="flex gap-4">
+    <div className="max-w-3xl mx-auto mt-10 p-6 bg-white shadow-md rounded">
+      <form
+        onSubmit={handleSearch}
+        className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6"
+      >
         <input
           type="text"
-          placeholder="Enter GitHub username"
+          placeholder="Username (optional)"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-          className="flex-1 p-2 border rounded"
+          className="p-2 border rounded"
+        />
+        <input
+          type="text"
+          placeholder="Location (e.g. Nigeria)"
+          value={location}
+          onChange={(e) => setLocation(e.target.value)}
+          className="p-2 border rounded"
+        />
+        <input
+          type="number"
+          placeholder="Min Repos"
+          value={minRepos}
+          onChange={(e) => setMinRepos(e.target.value)}
+          className="p-2 border rounded"
         />
         <button
           type="submit"
-          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+          className="sm:col-span-3 bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
         >
-          Search
+          Search GitHub Users
         </button>
       </form>
 
-      <div className="mt-6">
-        {loading && <p className="text-gray-600">Loading...</p>}
-        {error && <p className="text-red-500">{error}</p>}
-        {userData && (
-          <div className="flex items-center gap-4 mt-4">
+      {loading && <p className="text-gray-600 text-center">Loading...</p>}
+      {error && <p className="text-red-500 text-center">{error}</p>}
+
+      <div className="grid gap-4 mt-6">
+        {users.map((user) => (
+          <div
+            key={user.id}
+            className="flex items-center gap-4 bg-gray-50 p-4 rounded shadow-sm"
+          >
             <img
-              src={userData.avatar_url}
-              alt={userData.login}
+              src={user.avatar_url}
+              alt={user.login}
               className="w-16 h-16 rounded-full"
             />
             <div>
-              <h2 className="text-xl font-semibold">
-                {userData.name || userData.login}
-              </h2>
+              <h2 className="text-lg font-semibold">{user.login}</h2>
               <a
-                href={userData.html_url}
+                href={user.html_url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-500 underline"
               >
                 View GitHub Profile
               </a>
+              <p className="text-sm text-gray-600">
+                {user.location || "Location not available"}
+              </p>
+              <p className="text-sm text-gray-600">
+                Public Repos: {user.public_repos ?? "N/A"}
+              </p>
             </div>
           </div>
-        )}
+        ))}
       </div>
     </div>
   );
