@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { fetchUserData } from "../services/githubService";
-import { fetchGitHubUser } from "../services/githubService";
+// 644f6bdc1ba44b1c4eb19b6b8a93949f73f7c783
 
 function Search() {
   const [username, setUsername] = useState("");
@@ -20,11 +20,11 @@ function Search() {
       const results = await fetchUserData({ username, location, minRepos });
       setUsers(results);
     } catch (err) {
+    } catch {
       setError("Looks like we cant find the user");
     } finally {
       setLoading(false);
     }
-  };
 
   return (
     <div className="max-w-3xl mx-auto mt-10 p-6 bg-white shadow-md rounded">

@@ -1,3 +1,5 @@
+import axios from "axios";
+
 const GITHUB_TOKEN = import.meta.env.VITE_APP_GITHUB_TOKEN;
 
 export async function fetchGitHubUser(username) {
@@ -19,8 +21,6 @@ export async function fetchGitHubUser(username) {
     throw error;
   }
 }
-
-import axios from "axios";
 
 export const fetchUserData = async ({ username, location, minRepos }) => {
   let query = "";
