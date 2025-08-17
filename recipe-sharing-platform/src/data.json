@@ -3,18 +3,67 @@
     "id": 1,
     "title": "Spaghetti Carbonara",
     "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
-    "image": "https://via.placeholder.com/150"
+    "image": "https://via.placeholder.com/150",
+    "ingredients": [
+      "200g spaghetti",
+      "100g pancetta",
+      "2 large eggs",
+      "50g pecorino cheese",
+      "Black pepper"
+    ],
+    "instructions": [
+      "Cook the spaghetti in salted boiling water.",
+      "Fry pancetta until crispy.",
+      "Whisk eggs and cheese together in a bowl.",
+      "Drain pasta and combine with pancetta.",
+      "Remove from heat, add egg-cheese mix, stir quickly.",
+      "Serve with black pepper on top."
+    ]
   },
   {
     "id": 2,
     "title": "Chicken Tikka Masala",
     "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
-    "image": "https://via.placeholder.com/150"
+    "image": "https://via.placeholder.com/150",
+    "ingredients": [
+      "500g chicken breast",
+      "1 cup yogurt",
+      "2 tbsp tikka masala paste",
+      "1 onion",
+      "400g canned tomatoes",
+      "200ml cream"
+    ],
+    "instructions": [
+      "Marinate chicken in yogurt & tikka masala paste overnight.",
+      "Grill or pan-fry chicken until cooked.",
+      "Cook onions until soft, add tomatoes and simmer.",
+      "Blend sauce, return to pan, add cream.",
+      "Add chicken pieces, simmer for 10 minutes.",
+      "Serve with rice or naan bread."
+    ]
   },
   {
     "id": 3,
     "title": "Avocado Toast",
     "summary": "Toasted bread topped with smashed avocado, salt, pepper, and a drizzle of olive oil.",
-    "image": "https://via.placeholder.com/150"
+    "image": "https://via.placeholder.com/150",
+    "ingredients": [
+      "2 slices of whole-grain bread",
+      "1 ripe avocado",
+      "1 tablespoon lemon juice",
+      "Salt, to taste",
+      "Black pepper, to taste",
+      "Chili flakes (optional)",
+      "1 boiled or fried egg (optional)",
+      "Fresh herbs (parsley or cilantro) for garnish"
+    ],
+    "instructions": [
+      "Toast the bread slices until golden and crispy.",
+      "Cut the avocado in half, remove the pit, and scoop the flesh into a bowl.",
+      "Mash the avocado with a fork and mix in lemon juice, salt, and pepper.",
+      "Spread the mashed avocado evenly over the toasted bread slices.",
+      "Top with chili flakes, a boiled or fried egg, and fresh herbs if desired.",
+      "Serve immediately while the toast is still warm and crispy."
+    ]
   }
 ]
