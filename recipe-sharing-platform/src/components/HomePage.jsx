@@ -18,7 +18,7 @@ const HomePage = () => {
         🍳 Recipe Sharing Platform
       </h1>
       {/* Responsive Grid */}
-      <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-3">
+      <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2">
         {recipes.map((recipe) => (
           <div
             key={recipe.id}
