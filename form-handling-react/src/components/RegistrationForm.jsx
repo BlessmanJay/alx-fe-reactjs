@@ -9,7 +9,7 @@ export default function RegistrationForm() {
 
   const { username, email, password } = formData;
 
-  const [error, setError] = useState("");
+  const [errors, setErrors] = useState("");
 
   const handleChange = (e) => {
     setFormData({
@@ -21,12 +21,20 @@ export default function RegistrationForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!username || !email || !password) {
-      setError("All fields are required!");
+    if (!username) {
+      setErrors("Username is required");
+      return;
+    }
+    if (!email) {
+      setErrors("Email is required");
+      return;
+    }
+    if (!password) {
+      setErrors("Password is required");
       return;
     }
 
-    setError("");
+    setErrors("");
     console.log("Form Submitted:", formData);
     alert("User registered successfully!");
   };
@@ -38,7 +46,7 @@ export default function RegistrationForm() {
     >
       <h2 className="text-lg font-bold mb-3">Register (Controlled)</h2>
 
-      {error && <p className="text-red-500 mb-2">{error}</p>}
+      {errors && <p className="text-red-500 mb-2">{errors}</p>}
 
       <input
         type="text"
