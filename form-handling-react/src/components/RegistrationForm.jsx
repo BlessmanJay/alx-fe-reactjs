@@ -7,9 +7,10 @@ export default function RegistrationForm() {
     password: "",
   });
 
+  const { username, email, password } = formData;
+
   const [error, setError] = useState("");
 
-  // Handle input changes
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -17,20 +18,16 @@ export default function RegistrationForm() {
     });
   };
 
-  // Handle submit
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Basic validation
-    if (!formData.username || !formData.email || !formData.password) {
+    if (!username || !email || !password) {
       setError("All fields are required!");
       return;
     }
 
     setError("");
     console.log("Form Submitted:", formData);
-
-    // Simulate API call
     alert("User registered successfully!");
   };
 
@@ -47,7 +44,7 @@ export default function RegistrationForm() {
         type="text"
         name="username"
         placeholder="Username"
-        value={formData.username}
+        value={username}
         onChange={handleChange}
         className="border p-2 w-full mb-2"
       />
@@ -56,7 +53,7 @@ export default function RegistrationForm() {
         type="email"
         name="email"
         placeholder="Email"
-        value={formData.email}
+        value={email}
         onChange={handleChange}
         className="border p-2 w-full mb-2"
       />
@@ -65,7 +62,7 @@ export default function RegistrationForm() {
         type="password"
         name="password"
         placeholder="Password"
-        value={formData.password}
+        value={password}
         onChange={handleChange}
         className="border p-2 w-full mb-2"
       />
