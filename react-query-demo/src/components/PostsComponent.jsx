@@ -18,8 +18,10 @@ export default function PostsComponent() {
     ["posts", page],
     () => fetchPosts(page),
     {
-      keepPreviousData: true, // ✅ ALX checker looks for this
+      keepPreviousData: true,
       staleTime: 60 * 1000,
+      cacheTime: 5 * 60 * 1000,
+      refetchOnWindowFocus: false,
     }
   );
 
