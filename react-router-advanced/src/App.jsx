@@ -1,4 +1,4 @@
-import { Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -23,23 +23,25 @@ function App() {
         </Link>
       </nav>
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
 
-        {/* Profile with nested routes protected */}
-        <Route
-          path="/profile/*"
-          element={
-            <ProtectedRoute>
-              <Profile />
-            </ProtectedRoute>
-          }
-        />
+          {/* Profile with nested routes protected */}
+          <Route
+            path="/profile/*"
+            element={
+              <ProtectedRoute>
+                <Profile />
+              </ProtectedRoute>
+            }
+          />
 
-        {/* Dynamic blog posts */}
-        <Route path="/blog/:id" element={<BlogPost />} />
-      </Routes>
+          {/* Dynamic blog posts */}
+          <Route path="/blog/:id" element={<BlogPost />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
