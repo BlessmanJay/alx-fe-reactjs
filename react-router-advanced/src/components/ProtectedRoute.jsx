@@ -1,8 +1,8 @@
 import { Navigate } from "react-router-dom";
-import { auth } from "../auth";
+import { useAuth } from "../useAuth";
 
 function ProtectedRoute({ children }) {
-  if (!auth.isAuthenticated) {
+  if (!useAuth.isAuthenticated) {
     return <Navigate to="/" replace />;
   }
   return children;
